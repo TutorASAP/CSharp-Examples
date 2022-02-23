@@ -1,5 +1,3 @@
-﻿Vector3 position = new Vector3(0,0,0);
-
 // (Declaration)	(Primitive Type)	
 public enum Axys : byte
 {
