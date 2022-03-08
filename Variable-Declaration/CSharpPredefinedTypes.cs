@@ -1,4 +1,4 @@
-﻿#region UNSIGNED (WITH SYMBOL) INTEGEER VALUE TYPES
+#region UNSIGNED (WITH SYMBOL) INTEGEER VALUE TYPES
 bool myBool = false; // 8 bit
 byte myByte = 0; // 8 bit
 char myChar = 'A'; // (Unicode character) 16 bit
