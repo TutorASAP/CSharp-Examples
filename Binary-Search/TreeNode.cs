@@ -12,7 +12,7 @@
 
             public readonly T Data;
 
-            public TreeNode(T data, TreeNode? parent, TreeNode? left = null, TreeNode? right = null)
+            public TreeNode(T data, TreeNode? parent = null, TreeNode? left = null, TreeNode? right = null)
             {
                 this.parent = parent;
                 
@@ -21,7 +21,7 @@
 
                 Data = data;
 
-                IsRoot = parent == null ? true : false;
+                IsRoot = parent == null;
             }
 
             public List<TreeNode?> GetChildren()
