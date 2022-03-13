@@ -22,6 +22,11 @@ namespace LinearSearch
             this.collection = returnArray;
         }
 
+        public T?[]? ToArray()
+        {
+            return collection?[0].ToArray();
+        }
+
         public void Add(T? value)
         {
             if (collection == null) return;
@@ -47,6 +52,7 @@ namespace LinearSearch
             foreach (var item in collection)
             {
                 if (Equals(item.Value, value)) continue;
+
                 newCollection = newCollection.Append(item).ToArray();
             }
 
