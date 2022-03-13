@@ -10,8 +10,6 @@ linearCollection.Add(5345);
 var findResult = linearCollection.Find(5345);
 Console.WriteLine("Value is: " + findResult?.Value + "\nIndex is: " + findResult?.Index + "\n");
 
-if (findResult == null) return;
-
 findResult?.Reset();
 
 while(true)
