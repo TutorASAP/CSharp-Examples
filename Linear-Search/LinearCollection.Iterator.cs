@@ -19,21 +19,38 @@ namespace LinearSearch
                 Value = value; 
             }
 
-            public bool Next() 
-            { 
-                if(collectionReference.TryGetTarget(out Iterator[]? collection))
-                {
-                    if (collection != null)
-                    {
-                        if(index >= collection.Length - 1) return false;
+            public T?[]? ToArray()
+            {
+                if (collectionReference == null) return default;
 
-                        index++;
-                        Value = collection[index].Value;
-                        return true;
+                if(collectionReference.TryGetTarget(out var collection))
+                {
+                    var returnArray = new T?[collection.Length];
+
+                    for (int i = 0; i < returnArray.Length; i++)
+                    {
+                        returnArray[i] = collection[i].Value;
                     }
+
+                    return returnArray;
                 }
 
-                Value = default;
+                return default;
+            }
+
+            public bool Next() 
+            {
+                if (collectionReference.TryGetTarget(out Iterator[]? collection))
+                {
+                    if (collection == null) return false;
+                    if (index >= collection.Length - 1) return false;
+
+                    index++;
+                    Value = collection[index].Value;
+
+                    return true;
+                }
+
                 return false;
             }
 
@@ -43,11 +60,10 @@ namespace LinearSearch
 
                 if (collectionReference.TryGetTarget(out Iterator[]? collection))
                 {
-                    if (collection != null)
-                    {
-                        Value = collection[index].Value;
-                        return true;
-                    }
+                    if (collection == null) return false;
+
+                    Value = collection[index].Value;
+                    return true;
                 }
 
                 return false;
